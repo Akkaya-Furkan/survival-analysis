@@ -1,0 +1,12 @@
+{
+  "url": "https://raw.githubusercontent.com/CamDavidsonPilon/lifelines/v0.30.0/lifelines/datasets/lung.csv",
+  "sha256": "16ebd02c38bbb5708186d600cff80ad84d0764974619436f83ba4a605e77eb44",
+  "rows": 228,
+  "dataset": "NCCTG advanced lung cancer (lifelines distribution)",
+  "event_coding": {
+    "0": "right censored",
+    "1": "death"
+  },
+  "documentation": "https://stat.ethz.ch/R-manual/R-devel/library/survival/html/lung.html",
+  "coding_note": "R survival uses 1/2; this lifelines CSV already uses 0/1."
+}

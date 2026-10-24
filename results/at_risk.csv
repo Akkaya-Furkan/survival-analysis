@@ -1,0 +1,13 @@
+group,time,at_risk_start
+Male,0,137
+Male,200,78
+Male,400,31
+Male,600,13
+Male,800,6
+Male,1000,2
+Female,0,90
+Female,200,66
+Female,400,26
+Female,600,11
+Female,800,2
+Female,1000,0

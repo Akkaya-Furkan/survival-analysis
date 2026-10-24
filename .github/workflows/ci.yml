@@ -1,0 +1,41 @@
+name: Survival analysis CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MPLBACKEND: Agg
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+      - name: Install pinned environment
+        run: |
+          python -m pip install -r requirements.lock.txt
+          python -m pip install --no-deps --no-build-isolation -e .
+      - name: Fetch and verify public data
+        run: python scripts/download_data.py
+      - name: Run scientific and pipeline tests
+        run: python -m pytest -q
+      - name: Reproduce and verify outputs
+        run: |
+          python -m survival_analysis analyze
+          python -m survival_analysis verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ncctg-survival-results
+          path: |
+            results/
+            data/processed/
+            data/raw/provenance.json
+          if-no-files-found: error

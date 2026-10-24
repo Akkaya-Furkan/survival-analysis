@@ -1,0 +1,22 @@
+{
+  "source_n": 228,
+  "analysis_n": 227,
+  "excluded_n": 1,
+  "events": 164,
+  "censored": 63,
+  "km_median_days": {
+    "Male": 270.0,
+    "Female": 426.0
+  },
+  "logrank_statistic": 10.00817380569889,
+  "logrank_p": 0.0015584698175100007,
+  "concordance_in_sample": 0.6371354930004548,
+  "ph_alpha": 0.05,
+  "ph_transform": "rank",
+  "ph_flagged": [],
+  "covariates": [
+    "age_decade",
+    "female",
+    "ecog"
+  ]
+}

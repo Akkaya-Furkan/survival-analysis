@@ -3,4 +3,10 @@ __pycache__/
 .venv/
 .env
 .ipynb_checkpoints/
-data/raw/
+data/raw/*
+!data/raw/lung.csv
+!data/raw/provenance.json
+.pytest_cache/
+*.egg-info/
+build/
+dist/
